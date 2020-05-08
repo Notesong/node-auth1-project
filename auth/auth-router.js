@@ -41,9 +41,9 @@ router.get("/logout", (req, res) => {
   // removes the session from memory and from the store
   req.session.destroy((err) => {
     if (err) {
-      res.send("unable to logout");
+      res.status(500).json({ message: "unable to logout" });
     } else {
-      res.send("logged out");
+      res.status(200).json({ message: "logged out" });
     }
   });
 });
